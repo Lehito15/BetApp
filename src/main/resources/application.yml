@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: betapp
+  datasource:
+    driver-class-name: org.postgresql.Driver
+#    url: ${DB_URL}
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
+    username: postgres
+    password: Kot12345
+    url: jdbc:postgresql://localhost:5432/betdb
+  jpa:
+    show-sql: true
+    hibernate:
+#      ddl-auto: update
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id: 4e9n69qdrtscnsd0d3907csknu
+            client-secret: j4kpi85logc1v12po8dmf9klaejhtbsk45eg7bu7jvh13uqeu42
+        provider:
+          cognito:
+            issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_9KPX9rcla
+
